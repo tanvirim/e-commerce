@@ -10,6 +10,11 @@ const ErrorHandler = require("../utils/errorHandler");
 exports.createProduct = catchAsyncError(
   async (req, res) => {
 
+    //make logged in user as the creator of the product
+    //req.user is from cookies
+    req.body.user = req.user.id ;
+
+
     const product = await Product.create(req.body);
 
     res.status(201).json({

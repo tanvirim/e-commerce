@@ -11,7 +11,7 @@ process.on("uncaughtException", (err) => {
 });
 
 
-//config
+//config 
 dotenv.config({ path: "server/config/config.env" });
 //mongo connection
 connectToMongoDB();
