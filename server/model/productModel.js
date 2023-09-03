@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 
 const reviewSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User",
+    required: true,
+  },
   name: {
     type: String,
     required: [true, "name of reviewer is required"],
@@ -51,7 +56,7 @@ const productSchema = new mongoose.Schema({
     max: [9999, "stock can not exceed 4 characters"],
     default: 1,
   },
-  rating: {
+  ratings: {
     type: Number,
     default: 0,
   },
