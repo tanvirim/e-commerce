@@ -112,7 +112,7 @@ exports.newOrder = catchAsyncError(async (req, res, next) => {
     const product = await Product.findById(id);
       
     product.stock -= quantity;
-    
+    console.log("stock after",product.stock)
   
     await product.save({ validateBeforeSave: false });
   }
